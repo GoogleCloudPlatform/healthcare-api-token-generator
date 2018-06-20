@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractEntityIdFromPath">
+    <DisplayName>ExtractEntityIdFromPath</DisplayName>
+    <Properties/>
+    <URIPath>
+        <Pattern ignoreCase="false">/{entity}/{id}</Pattern>
+    </URIPath>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">request</Source>
+    <VariablePrefix>reqParams</VariablePrefix>
+</ExtractVariables>

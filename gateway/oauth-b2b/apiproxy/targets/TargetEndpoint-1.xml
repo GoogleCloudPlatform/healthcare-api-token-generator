@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="TargetEndpoint-1">
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>RemoveTargetSuffix</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows/>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>http://35.233.153.72:8080/oauth2/token</URL>
+    </HTTPTargetConnection>
+</TargetEndpoint>

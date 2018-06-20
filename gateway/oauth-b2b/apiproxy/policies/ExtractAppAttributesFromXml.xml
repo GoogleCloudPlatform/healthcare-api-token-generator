@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractAppAttributesFromXml">
+    <DisplayName>ExtractAppAttributesFromXml</DisplayName>
+    <Properties/>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">AccessEntity.ChildNodes.GetAppAttributes.App.Attributes</Source>
+    <VariablePrefix>hcproperties</VariablePrefix>
+    <XMLPayload stopPayloadProcessing="false">
+        <Namespaces/>
+        <Variable name="hc_location" type="string">
+            <XPath>/Attributes/Attribute[Name="location"]/Value</XPath>
+        </Variable>
+        <Variable name="hc_project" type="string">
+            <XPath>/Attributes/Attribute[Name="project"]/Value</XPath>
+        </Variable>
+        <Variable name="hc_dataset" type="string">
+            <XPath>/Attributes/Attribute[Name="dataset"]/Value</XPath>
+        </Variable>
+        <Variable name="hc_fhirstore" type="string">
+            <XPath>/Attributes/Attribute[Name="fhirstore"]/Value</XPath>
+        </Variable>
+    </XMLPayload>
+</ExtractVariables>

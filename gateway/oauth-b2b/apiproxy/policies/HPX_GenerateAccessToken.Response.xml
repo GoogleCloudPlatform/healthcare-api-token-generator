@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="HPX_GenerateAccessToken.Response">
+    <AssignTo createNew="true" type="response">response</AssignTo>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Set>
+        <Payload contentType="application/json" variablePrefix="%" variableSuffix="#">
+          {"access_token":"%oauthv2accesstoken.HPX_GenerateAccessToken.access_token#","token_type":"%oauthv2accesstoken.HPX_GenerateAccessToken.token_type#","expires_in":%private.authResponse.expiresIn#,"scope":"%oauthv2accesstoken.HPX_GenerateAccessToken.scope#"}</Payload>
+    </Set>
+</AssignMessage>

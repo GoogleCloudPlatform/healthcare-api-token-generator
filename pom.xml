@@ -1,0 +1,145 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.google.healthcare</groupId>
+    <artifactId>hcls-api-token-gen</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>Google HCLS Healthcare API OAuth 2.0 Token Generation</name>
+
+    <modules>
+        <module>k8s-token-gen</module>
+		<module>gateway</module>
+    </modules>
+	
+	<properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+		
+		<commons.lang3.version>3.7</commons.lang3.version>
+		<commons.io.version>2.6</commons.io.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		
+		<junit.version>3.8.1</junit.version>
+	</properties>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<name>Maven Plugin Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+	<dependencyManagement>
+	    <dependencies>
+	        <dependency>
+	            <groupId>org.apache.commons</groupId>
+	            <artifactId>commons-lang3</artifactId>
+	            <version>${commons.lang3.version}</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>commons-io</groupId>
+	            <artifactId>commons-io</artifactId>
+	            <version>${commons.io.version}</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>org.slf4j</groupId>
+	            <artifactId>slf4j-api</artifactId>
+	            <version>${slf4j.version}</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>org.slf4j</groupId>
+	            <artifactId>slf4j-simple</artifactId>
+	            <version>${slf4j.version}</version>
+	            <scope>test</scope>
+	        </dependency>
+			
+	        <dependency>
+	            <groupId>junit</groupId>
+	            <artifactId>junit</artifactId>
+	            <version>${junit.version}</version>
+	            <scope>test</scope>
+	        </dependency>
+	    </dependencies>
+	</dependencyManagement>
+	
+	<!-- This is where you add the environment specific properties under various profile names -->
+	 <profiles>
+	        <profile>
+	            <id>dev</id>
+	            <properties>
+	                <org>gcp-hcls</org>  <!-- default org, replace with default org to avoid passing parameter e.g. -Dorg testmyapi -->
+	                <options>validate</options>  <!-- default org, replace with default org to avoid passing parameter e.g. -Dorg testmyapi -->
+	                <apigee.profile>dev</apigee.profile>
+	                <apigee.env>dev</apigee.env>
+	                <apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
+	                <apigee.apiversion>v1</apigee.apiversion>
+	                <apigee.org>${org}</apigee.org>
+	                <apigee.username>${username}</apigee.username>
+	                <apigee.password>${password}</apigee.password>
+	                <apigee.options>${options}</apigee.options>
+	                <apigee.revision>${revision}</apigee.revision> <!-- used while trying to update revision, use when option=update only -->
+	                <apigee.tokenurl>${tokenurl}</apigee.tokenurl> <!-- optional: oauth -->
+	                <apigee.mfatoken>${mfatoken}</apigee.mfatoken> <!-- optional: mfa -->
+	                <apigee.authtype>${authtype}</apigee.authtype> <!-- optional: oauth|basic(default) -->
+	                <apigee.bearer>${bearer}</apigee.bearer> <!-- optional: Bearer token override -->
+	                <apigee.refresh>${refresh}</apigee.refresh> <!-- optional: Refresh token override -->
+	                <apigee.clientid>${clientId}</apigee.clientid> <!-- optional: Oauth Client Id - Default is edgecli-->
+	                <apigee.clientsecret>${clientSecret}</apigee.clientsecret> <!-- optional: Oauth Client Secret Default is edgeclisecret-->
+	                <!--apigee.override.delay>10</apigee.override.delay-->
+	                <!--apigee.delay>1000</apigee.delay-->
+	            </properties>
+	        </profile>
+	        <profile>
+	            <id>prod</id>
+	            <properties>
+	                <org>gcp-hcls</org>  <!-- default org, replace with default org to avoid passing parameter e.g. -Dorg testmyapi -->
+	                <options>validate</options>  <!-- default org, replace with default org to avoid passing parameter e.g. -Dorg testmyapi -->
+	                <apigee.profile>prod</apigee.profile>
+	                <apigee.env>prod</apigee.env>
+	                <apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
+	                <apigee.apiversion>v1</apigee.apiversion>
+	                <apigee.org>${org}</apigee.org>
+	                <apigee.username>${username}</apigee.username>
+	                <apigee.password>${password}</apigee.password>
+	                <apigee.options>${options}</apigee.options>
+	                <apigee.revision>${revision}</apigee.revision> <!-- used while trying to update revision, use when option=update only -->
+	                <apigee.tokenurl>${tokenurl}</apigee.tokenurl> <!-- optional: oauth -->
+	                <apigee.mfatoken>${mfatoken}</apigee.mfatoken> <!-- optional: mfa -->
+	                <apigee.authtype>${authtype}</apigee.authtype> <!-- optional: oauth|basic(default) -->
+	                <apigee.bearer>${bearer}</apigee.bearer> <!-- optional: Bearer token override -->
+	                <apigee.refresh>${refresh}</apigee.refresh> <!-- optional: Refresh token override -->
+	                <apigee.clientid>${clientId}</apigee.clientid> <!-- optional: Oauth Client Id - Default is edgecli-->
+	                <apigee.clientsecret>${clientSecret}</apigee.clientsecret> <!-- optional: Oauth Client Secret Default is edgeclisecret-->
+	                <!--apigee.override.delay>10</apigee.override.delay-->
+	                <!--apigee.delay>1000</apigee.delay-->
+	            </properties>
+	        </profile>
+	    </profiles>	
+</project>

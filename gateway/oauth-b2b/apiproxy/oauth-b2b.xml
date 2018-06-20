@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="7" name="oauth-b2b">
+    <Basepaths>/b2b/oauth</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1526590716075</CreatedAt>
+    <CreatedBy>cvonsee@google.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>oauth-b2b</DisplayName>
+    <LastModifiedAt>1529436496558</LastModifiedAt>
+    <LastModifiedBy>cvonsee@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:f827486003fa6c2505ed0b6e2277b52d73bc67148365d273902bc6ce8fbf08e4f996e3fceffe3e602c1c6fb6f51b2531ddaf2b5431b9fca5b4dc9ff52a66bb74</ManifestVersion>
+    <Policies>
+        <Policy>AssignApplicationName</Policy>
+        <Policy>ConvertExpirationToString</Policy>
+        <Policy>CreateAuthRequestPayload</Policy>
+        <Policy>DecodeKeySecret</Policy>
+        <Policy>ExtractAppAttributesFromXml</Policy>
+        <Policy>ExtractAuthResponse</Policy>
+        <Policy>GetAppAttributes</Policy>
+        <Policy>GetIAMCredentials</Policy>
+        <Policy>GetRequestParams</Policy>
+        <Policy>HPX_Fault_UnsupportedOperation</Policy>
+        <Policy>HPX_GenerateAccessToken.Response</Policy>
+        <Policy>HPX_GenerateAccessToken</Policy>
+        <Policy>HPX_LogMessage</Policy>
+        <Policy>HPX_RaiseFault_Generic</Policy>
+        <Policy>HPX_SetLogsData</Policy>
+        <Policy>RaiseFaultInvalidRequest</Policy>
+        <Policy>RaiseFaultUnauthorized</Policy>
+        <Policy>RemoveTargetSuffix</Policy>
+        <Policy>VerifyApiKey</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://ConvertExpirationToString.js</Resource>
+        <Resource>jsc://HPX_SetLogsData.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>TargetEndpoint-1</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

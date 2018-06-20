@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <DefaultFaultRule name="set_log_data">
+        <Step>
+            <Name>HPX_SetLogsData</Name>
+        </Step>
+        <AlwaysEnforce>true</AlwaysEnforce>
+    </DefaultFaultRule>
+    <FaultRules>
+        <FaultRule name="InvalidBasicAuthenticationSource">
+            <Step>
+                <Name>RaiseFaultUnauthorized</Name>
+                <Condition>fault.name == "InvalidBasicAuthenticationSource"</Condition>
+            </Step>
+        </FaultRule>
+        <FaultRule name="InvalidApiKey">
+            <Step>
+                <Name>RaiseFaultUnauthorized</Name>
+                <Condition>(fault.name == "DeveloperStatusNotActive") || (fault.name == "FailedToResolveAPIKey") || (fault.name == "InvalidApiKey")</Condition>
+            </Step>
+        </FaultRule>
+        <FaultRule name="default">
+            <Step>
+                <Name>RaiseFaultInvalidRequest</Name>
+            </Step>
+        </FaultRule>
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="generate-access-token">
+            <Description/>
+            <Request>
+                <!-- 
+                We run a pre-check on the key and secret to make sure they're valid before we call for the token, etc. 
+                That way, we don't need to generate the token (and validate the key/secret) then set additional attributes
+                on the newly-generated token. We also use this to get the app name.
+                -->
+                <Step>
+                    <Name>DecodeKeySecret</Name>
+                </Step>
+                <Step>
+                    <Name>VerifyApiKey</Name>
+                </Step>
+                <Step>
+                    <Name>RaiseFaultUnauthorized</Name>
+                    <Condition>verifyapikey.VerifyApiKey.client_secret != private.apisecret</Condition>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>GetRequestParams</Name>
+                </Step>
+                <Step>
+                    <Name>RaiseFaultInvalidRequest</Name>
+                    <!-- <Condition>(authRequest.applicationName == null) || (authRequest.grantType == null) || (authRequest.scopes == null)</Condition> -->
+                    <Condition>(authRequest.grantType == null) || (authRequest.scopes == null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AssignApplicationName</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>GetIAMCredentials</Name>
+                </Step>
+                <Step>
+                    <Name>RaiseFaultUnauthorized</Name>
+                    <Condition>(private.iam.gcpClientApiSecret == null)</Condition>
+                </Step>
+                <Step>
+                    <Name>CreateAuthRequestPayload</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>RaiseFaultUnauthorized</Name>
+                    <Condition>response.status.code != 200 </Condition>
+                </Step>
+                <Step>
+                    <Name>ExtractAuthResponse</Name>
+                </Step>
+                <Step>
+                    <Name>ConvertExpirationToString</Name>
+                </Step>
+                <Step>
+                    <Name>GetAppAttributes</Name>
+                </Step>
+                <Step>
+                    <Name>ExtractAppAttributesFromXml</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>HPX_GenerateAccessToken</Name>
+                </Step>
+                <Step>
+                    <Name>HPX_GenerateAccessToken.Response</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/accesstoken") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="generate_access_token_cors">
+            <Step>
+                <Name>HPX_CORSPreflight</Name>
+            </Step>
+            <Condition>(proxy.pathsuffix MatchesPath "/accesstoken") and (request.verb = "OPTIONS")</Condition>
+        </Flow>
+        <!-- Default flow catches any invalid request path/verb combination. -->
+        <Flow name="default">
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>HPX_Fault_UnsupportedOperation</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            <Step>
+                <Name>HPX_SetLogsData</Name>
+                <Condition>(request.verb!="OPTIONS")</Condition>
+            </Step>
+        </Response>
+    </PostFlow>
+    <PostClientFlow>
+        <Request/>
+        <Response>
+            <Step>
+                <Name>HPX_LogMessage</Name>
+                <Condition>(request.verb!="OPTIONS")</Condition>
+            </Step>
+        </Response>
+    </PostClientFlow>
+    <HTTPProxyConnection>
+        <BasePath>/oauth2</BasePath>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>TargetEndpoint-1</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

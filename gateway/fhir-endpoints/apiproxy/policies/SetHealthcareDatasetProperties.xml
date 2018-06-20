@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="SetHealthcareDatasetProperties">
+    <DisplayName>SetHealthcareDatasetProperties</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>HC_location</Name>
+        <Ref>accesstoken.HC_location</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>HC_project</Name>
+        <Ref>accesstoken.HC_project</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>HC_dataset</Name>
+        <Ref>accesstoken.HC_dataset</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>HC_token</Name>
+        <Ref>accesstoken.IAM_token</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>HC_fhirstore</Name>
+        <Ref>accesstoken.HC_fhirstore</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

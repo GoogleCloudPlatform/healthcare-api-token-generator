@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="GetRequestParams">
+    <DisplayName>GetRequestParams</DisplayName>
+    <JSONPayload>
+        <!--
+        <Variable name="applicationName">
+            <JSONPath>$.applicationName</JSONPath>
+        </Variable>
+        -->
+        <Variable name="grantType">
+            <JSONPath>$.grantType</JSONPath>
+        </Variable>
+        <Variable name="scopes">
+            <JSONPath>$.scopes</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">request</Source>
+    <VariablePrefix>authRequest</VariablePrefix>
+</ExtractVariables>

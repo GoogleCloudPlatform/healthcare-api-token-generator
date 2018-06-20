@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="HPX_RaiseFault_Generic">
+    <DisplayName>HPX_RaiseFault_Generic</DisplayName>
+    <Description>This policy is used to throw a custom generic error encountered during execution. Specific handling and response payload is set in the fault handlers appropriately.</Description>
+    <Properties/>
+    <FaultResponse>
+        <Set/>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

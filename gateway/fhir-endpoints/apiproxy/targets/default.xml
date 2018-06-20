@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>CreateHCAuthHeader</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows/>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://healthcare.googleapis.com/v1alpha/projects/{HC_project}/locations/{HC_location}/datasets/{HC_dataset}/fhirStores/{HC_fhirstore}/resources/{reqParams.entity}/{reqParams.id}</URL>
+    </HTTPTargetConnection>
+</TargetEndpoint>

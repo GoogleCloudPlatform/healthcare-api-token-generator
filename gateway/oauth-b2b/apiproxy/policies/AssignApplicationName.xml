@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignApplicationName">
+    <DisplayName>AssignApplicationName</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>authRequest.applicationName</Name>
+        <Ref>developer.app.name</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

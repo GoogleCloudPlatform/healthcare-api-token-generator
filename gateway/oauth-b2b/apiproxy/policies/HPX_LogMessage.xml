@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MessageLogging async="false" continueOnError="false" enabled="true" name="HPX_LogMessage">
+    <DisplayName>LogMessage</DisplayName>
+    <Syslog>
+        <Message>[c9bb9218-0968-49ca-bae0-7bcb478a6c18@41058] {logs}</Message>
+        <Host>logs-01.loggly.com</Host>
+        <Port>514</Port>
+        <Protocol>TCP</Protocol>
+        <FormatMessage>true</FormatMessage>
+    </Syslog>
+</MessageLogging>

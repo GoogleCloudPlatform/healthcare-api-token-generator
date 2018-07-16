@@ -11,22 +11,16 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.google.healthcare.apigee;
+package com.google.healthcare.apigee.controllers;
 
-public class OAuthTokenResponse {
-    private String accessToken;
-    private Long expiresin;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-    public OAuthTokenResponse(final String accessToken, final Long expiresin) {
-        this.accessToken = accessToken;
-        this.expiresin = expiresin;
-    }
+@SpringBootApplication
+public class Application {
 
-    public String getAccessToken() {
-        return accessToken;
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(Application.class, args);
+  }
 
-    public Long getExpiresin() {
-        return expiresin;
-    }
 }

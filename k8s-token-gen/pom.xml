@@ -27,11 +27,13 @@
         <docker.image.prefix>healthcare</docker.image.prefix>
         <dockerfile-maven-version>1.4.0</dockerfile-maven-version>
 
-        <!-- The following is needed to avoid running Maven deploy plugin. See https://github.com/spotify/dockerfile-maven/issues/162 -->
+        <!-- The following is needed to avoid running Maven deploy plugin.
+             See https://github.com/spotify/dockerfile-maven/issues/162 -->
         <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
-    <!-- Since we're not using the Spring Boot parent we need to include the dependencies here so that they'll get incorporated into the final JAR -->
+    <!-- Since we're not using the Spring Boot parent we need to include the dependencies here so that they'll
+         get incorporated into the final JAR -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -45,7 +47,7 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>  <!-- needed to avoid issue with JAR plugin -->
+        <dependency>
             <groupId>org.codehaus.plexus</groupId>
             <artifactId>plexus-archiver</artifactId>
             <version>3.6.0</version>
@@ -63,18 +65,6 @@
             <version>${project.oauth2.library.version}</version>
         </dependency>
 
-        <dependency>  <!-- for BuildIapRequest -->
-            <groupId>com.nimbusds</groupId>
-            <artifactId>nimbus-jose-jwt</artifactId>
-            <version>5.7</version>
-        </dependency>
-
-		<!--<dependency>-->
-	        <!--<groupId>org.springframework.boot</groupId>-->
-	        <!--<artifactId>spring-boot-starter-parent</artifactId>-->
-	        <!--<version>${spring.version}</version>-->
-			<!--<type>pom</type>-->
-		<!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -120,22 +110,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-           <!--
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${maven.jar.plugin.version}</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>false</addClasspath>
-                            <mainClass>netgloo.Application</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-            -->
 
             <plugin>
                 <groupId>com.spotify</groupId>

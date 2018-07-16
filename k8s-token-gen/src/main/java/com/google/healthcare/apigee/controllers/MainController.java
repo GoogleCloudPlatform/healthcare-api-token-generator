@@ -1,21 +1,24 @@
-package netgloo.controllers;
+/*
+ * Copyright (c) 2018 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+package com.google.healthcare.apigee.controllers;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.text.MessageFormat;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.healthcare.apigee.GCPAuthJavaCallout;
 import com.google.healthcare.apigee.OAuthTokenRequest;
 import com.google.healthcare.apigee.OAuthTokenResponse;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,18 +28,14 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
-  
-  // The Environment object will be used to read parameters from the 
-  // application.properties configuration file
-  @Autowired
-  private Environment env;
+  private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
   
   /**
-   * POST /uploadFile -> receive and locally save a file.
+   * POST /oauth2/token -> Generate an OAuth token using the specified request parameters.
    * 
-   *
-   * @return An http OK status in case of success, an http 4xx status in case 
-   * of errors.
+   * @param tokenRequest An object containing OAuth2 token request parameters from Apigee.
+   * @return An HTTP 200 OK status in case of success, an HTTP 400 BAD REQUEST status in case
+   * of an invalid request, and an HTTP 500 INTERNAL SERVER ERROR status in case of any other error.
    */
   @RequestMapping(value = "/oauth2/token",
           method = RequestMethod.POST,
@@ -49,15 +48,13 @@ public class MainController {
     try {
       final GCPAuthJavaCallout callout = new GCPAuthJavaCallout();
       final OAuthTokenResponse tokenResponse = callout.getToken(tokenRequest);
-      final String jsonOutput = String.format("{ \"accessToken\" : \"%s\", \"expiresIn\" : %d }",
-              tokenResponse.getAccessToken(),
-              tokenResponse.getExpiresin()
-      );
+
+      final String jsonOutput = OBJECT_MAPPER.writeValueAsString(tokenResponse);
 
       HttpHeaders responseHeaders = new HttpHeaders();
       responseHeaders.setContentType(MediaType.APPLICATION_JSON);
 
-      return new ResponseEntity<String>(jsonOutput, responseHeaders, HttpStatus.OK);
+      return new ResponseEntity<>(jsonOutput, responseHeaders, HttpStatus.OK);
     } catch (IllegalArgumentException e) {
       return exceptionResponse(e, HttpStatus.BAD_REQUEST);
     } catch (IOException e) {

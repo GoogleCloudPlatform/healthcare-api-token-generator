@@ -45,6 +45,9 @@ see [https://cloud.google.com/kubernetes-engine/](https://cloud.google.com/kuber
 * A Java 8 Software Development Kit.
 * A local running Docker environment
 
+In addition, depending on your installation you may need to generate keys and certificates for use with TLS.  You should
+have these available before you begin installation.
+
 
 ## Deploying the Solution
 
@@ -88,6 +91,13 @@ README.md file in that folder for more details.
 3. Once you have an IP address or DNS name for the newly-deployed Kubernetes code, edit the Apigee OAuth proxy to include
 that information in the target endpoint, then import and deploy the Apigee proxies in your Apigee system.  See the
 README.md file in the "gateway" subfolder for details on how to do this.
+
+IMPORTANT NOTE: In order to use TLS between your clients and Apigee, or between Apigee and the Cloud Healthcare API, you
+will need to provide the appropriate keys and certificates.  This document does not describe how to obtain these keys and
+certificates, or how to configure Apigee or GKE to use them.  You should consult the Apigee and Google Cloud Platform
+documentation for this information.  In addition, you may want to change the port number on which the OAuth 2 service
+listens from 8080 to either 80, 443, 8443 or another value as appropriate for your installation.
+
 4. Configure Apigee to allow IAM service account keys to be stored in an encrypted key-value map (KVM) inside the
 Apigee system, then create and configure developer and developer application definitions.  The README.md file in the
 "gateway" subfolder has more information.

@@ -17,6 +17,9 @@
     <Flows/>
     <HTTPTargetConnection>
         <Properties/>
-        <URL>http://35.233.153.72:8080/oauth2/token</URL>
+        <!-- IMPORTANT NOTE: YOU MUST DEPLOY THE KUBERNETES SERVICE CALLED FROM THIS TARGET BEFORE USING THIS
+             TARGET ENDPOINT.  Change the "{k8s-ip-addr-or-dns-name}" variable below to either the DNS name or
+             IP address of the deployed service. -->
+        <URL>https://{k8s-ip-addr-or-dns-name}:8080/oauth2/token</URL>
     </HTTPTargetConnection>
 </TargetEndpoint>

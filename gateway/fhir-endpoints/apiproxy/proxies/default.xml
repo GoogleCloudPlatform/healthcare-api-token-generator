@@ -21,7 +21,7 @@
         <Response/>
     </PostFlow>
     <Flows>
-        <Flow name="getPractitioner">
+        <Flow name="getResource">
             <Description/>
             <Request>
                 <Step>
@@ -29,7 +29,7 @@
                 </Step>
             </Request>
             <Response/>
-            <Condition>(proxy.pathsuffix MatchesPath "/Practitioner/**") and (request.verb = "GET")</Condition>
+            <Condition>(proxy.pathsuffix MatchesPath "/*/**") and (request.verb = "GET")</Condition>
         </Flow>
     </Flows>
     <HTTPProxyConnection>
@@ -41,7 +41,4 @@
     <RouteRule name="default">
         <TargetEndpoint>default</TargetEndpoint>
     </RouteRule>
-    <!--
-    <RouteRule name="notarget"/>
-    -->
 </ProxyEndpoint>

@@ -125,7 +125,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <repository>gcr.io/cvs-healthcareplayground/${project.artifactId}</repository>
+                    <repository>gcr.io/${gcpprojectname}/${project.artifactId}</repository>
                     <tag>${project.version}</tag>
                     <buildArgs>
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>

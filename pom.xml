@@ -94,8 +94,8 @@
 	        <profile>
 	            <id>dev</id>
 	            <properties>
-	                <org>gcp-hcls</org>  <!-- default org, replace with default org to avoid passing parameter e.g. -Dorg testmyapi -->
-	                <options>validate</options>  <!-- default org, replace with default org to avoid passing parameter e.g. -Dorg testmyapi -->
+	                <org>${orgname}</org>  <!-- replace with Apigee org name -Dorg testmyapi -->
+	                <options>validate</options>
 	                <apigee.profile>dev</apigee.profile>
 	                <apigee.env>dev</apigee.env>
 	                <apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
@@ -112,15 +112,17 @@
 	                <apigee.refresh>${refresh}</apigee.refresh> <!-- optional: Refresh token override -->
 	                <apigee.clientid>${clientId}</apigee.clientid> <!-- optional: Oauth Client Id - Default is edgecli-->
 	                <apigee.clientsecret>${clientSecret}</apigee.clientsecret> <!-- optional: Oauth Client Secret Default is edgeclisecret-->
-	                <!--apigee.override.delay>10</apigee.override.delay-->
-	                <!--apigee.delay>1000</apigee.delay-->
+					<!--apigee.override.delay>10</apigee.override.delay-->
+					<!--apigee.delay>1000</apigee.delay-->
+
+					<gcp.project>${gcpprojectname}</gcp.project>
 	            </properties>
 	        </profile>
 	        <profile>
 	            <id>prod</id>
 	            <properties>
-	                <org>gcp-hcls</org>  <!-- default org, replace with default org to avoid passing parameter e.g. -Dorg testmyapi -->
-	                <options>validate</options>  <!-- default org, replace with default org to avoid passing parameter e.g. -Dorg testmyapi -->
+	                <org>${orgname}</org>  <!-- replace with Apigee org name -Dorg testmyapi -->
+	                <options>validate</options>
 	                <apigee.profile>prod</apigee.profile>
 	                <apigee.env>prod</apigee.env>
 	                <apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
@@ -137,8 +139,10 @@
 	                <apigee.refresh>${refresh}</apigee.refresh> <!-- optional: Refresh token override -->
 	                <apigee.clientid>${clientId}</apigee.clientid> <!-- optional: Oauth Client Id - Default is edgecli-->
 	                <apigee.clientsecret>${clientSecret}</apigee.clientsecret> <!-- optional: Oauth Client Secret Default is edgeclisecret-->
-	                <!--apigee.override.delay>10</apigee.override.delay-->
-	                <!--apigee.delay>1000</apigee.delay-->
+					<!--apigee.override.delay>10</apigee.override.delay-->
+					<!--apigee.delay>1000</apigee.delay-->
+
+					<gcp.project>${gcpprojectname}</gcp.project>
 	            </properties>
 	        </profile>
 	    </profiles>	

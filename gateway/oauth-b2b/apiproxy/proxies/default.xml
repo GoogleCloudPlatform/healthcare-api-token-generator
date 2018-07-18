@@ -55,7 +55,6 @@
                 </Step>
                 <Step>
                     <Name>RaiseFaultInvalidRequest</Name>
-                    <!-- <Condition>(authRequest.applicationName == null) || (authRequest.grantType == null) || (authRequest.scopes == null)</Condition> -->
                     <Condition>(authRequest.grantType == null) || (authRequest.scopes == null)</Condition>
                 </Step>
                 <Step>

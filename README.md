@@ -18,6 +18,15 @@ Combined with application-specific configuration information governing which API
 Apigee's own extensive functionality for developer management, traffic mediation and threat detection,  a highly secure
 and fully managed solution for controlling access to healthcare data can be created.
 
+## License, usage and maintenance
+This project is being released under the Apache 2 license.  Please see the LICENSE file in this repository for details.
+
+While the code in this project is functionally complete, it is intended primarily as a template for your own implementation.
+We strongly suggest that you review the code before deployment to ensure that it is suitable for your specific
+requirements.
+
+PLEASE NOTE: THIS IS NOT AN OFFICIALLY SUPPORTED GOOGLE PRODUCT.
+
 
 ## Prerequisites
 The following prerequisites are needed:

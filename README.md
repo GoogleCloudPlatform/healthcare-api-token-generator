@@ -21,9 +21,17 @@ and fully managed solution for controlling access to healthcare data can be crea
 ## License, usage and maintenance
 This project is being released under the Apache 2 license.  Please see the LICENSE file in this repository for details.
 
-While the code in this project is functionally complete, it is intended primarily as a template for your own implementation.
-We strongly suggest that you review the code before deployment to ensure that it is suitable for your specific
-requirements.
+The code in this repository is intended primarily as a template for your own implementation. We strongly suggest that
+you review the code before deployment to ensure that it is suitable for your specific requirements.  In particular:
+
+* Because traffic management requirements are very specific to the customer and use case, the Apigee proxies in this
+repository do not implement traffic management or threat detection policies.
+* Generally speaking, the code in this repository is oriented more toward server-side applications within a healthcare
+organization (although there's no reason that this code can't be used as a foundation for other use cases). For example,
+this code uses the OAuth 2 client credentials grant, which does not accept user identify parameters (userid and password)
+and is not appropriate for places where access is to be scoped to particular individuals (patients, providers, etc.).
+This code also does not provide for any sort of end user consent management; if such features are needed, you may want
+review Apigee's open-source Health APIx solution (https://github.com/apigee/flame).
 
 PLEASE NOTE: THIS IS NOT AN OFFICIALLY SUPPORTED GOOGLE PRODUCT.
 

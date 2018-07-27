@@ -3,17 +3,21 @@
     <Policies>
         <VersionInfo resourceName="CreateHCAuthHeader" version="SHA-512:a0f9a3609b52bbd61480e1487527297ac25935c5ab4545238398b50e34420f8435fb08001927a9d4d3a26652e5f353fa62642c3d59d7f8d95dfd6b0142872c84"/>
         <VersionInfo resourceName="ExtractEntityIdFromPath" version="SHA-512:bf4da15bf7c0aaaa7789e683d1b36f7cd88e4a892286b60a4c2e618ff815088a65951792cbd9cd51c72a782c5f3b47c6e8b235525f3c6bac19fbee9bd8ceb9c3"/>
+        <VersionInfo resourceName="ExtractEntityTypeOnlyFromPath" version="SHA-512:984af2af945a23111657d6f7c5a839a1a9702a2649f6071393430cc5b6b3a8e32fde703148e0ddb762ce6b448f670b9a165b48df69095310dc5bf684cdd755fb"/>
+        <VersionInfo resourceName="HPX_Fault_UnsupportedOperation" version="SHA-512:adb707a171b756e74f27e0144581d04c6268f0242d028a836c2e1bc9f1190d49c0c4d7f228867cf33facce97905e5fb28208b745b489566e2061a78208f92eac"/>
+        <VersionInfo resourceName="RaiseFaultUnauthorized" version="SHA-512:97b47150863c44473cae89cad412dced34edab66bd685f4df14e752049709a15f8f0913ec33c5d1ba61013d654721565c339e4f5bc4452f7a77283b34d26e907"/>
         <VersionInfo resourceName="SetEntityNamePractitioner" version="SHA-512:369883571b72c978b3f676fc3189e149f7b2c4fe1fbd52cf4dffae29caafa36e66fbbc0df2a1e8fb8159a6bade08ab3fde8ea9cd21bfd616e61eeceec3d46120"/>
         <VersionInfo resourceName="SetHealthcareDatasetProperties" version="SHA-512:87a9bf507231826c7ba7306409e7d277645347aaae78ba70c608f8640f5d3d1a91ed76babb6d93d26f76bd3356388590d01f757efd221409fee41602687876c8"/>
         <VersionInfo resourceName="remove-header-authorization" version="SHA-512:bb51e553b4b66ee4313fbfc0eaa76f08f3db66f9bd05cce9a1dc6542bada0501291719372fb4468a0b7f85ecceaaf0f8a0a397560a14b05f32e87d95423befb7"/>
         <VersionInfo resourceName="verify-oauth-v2-access-token" version="SHA-512:be186ad133f93aafcac3d31bcb907dc849e4d8d10dadc63132cec9986bb306f937d7e9786a40be6ba66e04f4239189c3197d9df3c0ccbb30d79b4bd70231894e"/>
     </Policies>
     <ProxyEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:7a35fcdfc5c55a65dc3306c4ab802b6c0e90f674bcb96b615cd95b05f0272cdadf5e33ebfe9f8d8d5cede5b30c06a26791df75fe9ade680c0972936e3d2a1908"/>
+        <VersionInfo resourceName="default" version="SHA-512:aa6637ef9846b42440d1ddf2a644d919431149c8c568e737067afda998bf152f71197a62a2518a6c02155a57acd63ae80ff38cf4c7e919363394f797ed330bbd"/>
     </ProxyEndpoints>
     <Resources/>
     <SharedFlows/>
     <TargetEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:3bcfa087ebf350cd15197b8fcef66e5a1387e450533511257d61768fdd09f8686757cd193d6bf00d56edb40545b7119d0ff86c0ee75e52f5996f8276e4ddb782"/>
+        <VersionInfo resourceName="withID" version="SHA-512:a99a277ead91aca73cbe3f15b6150915fa879059ffa63da3b8c2f92b8663ea0f3aefdabb5986ddc3f94dc06ea340e90bc813bf6420bf7ff368e5acb51117d78d"/>
+        <VersionInfo resourceName="withoutID" version="SHA-512:adcb18ff4d02363211b8977d409c042768f49e199274e69bb127b0809c6def138fad7e8d3b20b5d27a84b67b2947a42dc06d18fe4b111c40a57f60a61e98ee8b"/>
     </TargetEndpoints>
 </Manifest>

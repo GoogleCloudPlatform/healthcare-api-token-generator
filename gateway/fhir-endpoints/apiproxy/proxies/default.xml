@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
     <Description/>
-    <FaultRules/>
+    <FaultRules>
+        <FaultRule name="InvalidAccessToken">
+            <Step>
+                <Name>RaiseFaultUnauthorized</Name>
+                <Condition>(fault.name == "access_token_expired") || (fault.name == "invalid_access_token")</Condition>
+            </Step>
+        </FaultRule>
+    </FaultRules>
     <PreFlow name="PreFlow">
         <Request>
             <Step>
@@ -21,7 +28,7 @@
         <Response/>
     </PostFlow>
     <Flows>
-        <Flow name="getResource">
+        <Flow name="getEntity">
             <Description/>
             <Request>
                 <Step>
@@ -31,6 +38,26 @@
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/*/**") and (request.verb = "GET")</Condition>
         </Flow>
+        <Flow name="postEntity">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>ExtractEntityTypeOnlyFromPath</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/*") and (request.verb = "POST")</Condition>
+        </Flow>
+        <!-- Default flow catches any invalid request path/verb combination. -->
+        <Flow name="default">
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>HPX_Fault_UnsupportedOperation</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
     </Flows>
     <HTTPProxyConnection>
         <BasePath>/v1/hcapi</BasePath>
@@ -38,7 +65,12 @@
         <VirtualHost>default</VirtualHost>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
-    <RouteRule name="default">
-        <TargetEndpoint>default</TargetEndpoint>
+    <RouteRule name="withID">
+        <TargetEndpoint>withID</TargetEndpoint>
+        <Condition>reqParams.id != null</Condition>
+    </RouteRule>
+    <RouteRule name="withoutID">
+        <TargetEndpoint>withoutID</TargetEndpoint>
+        <Condition>reqParams.id = null</Condition>
     </RouteRule>
 </ProxyEndpoint>

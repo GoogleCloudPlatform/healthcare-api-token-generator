@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="1" name="HealthcareAPI">
+<APIProxy revision="7" name="fhir-endpoints">
     <Basepaths>/v1/hcapi</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1527729882454</CreatedAt>
+    <CreatedAt>1529442358784</CreatedAt>
     <CreatedBy>cvonsee@google.com</CreatedBy>
     <Description></Description>
     <DisplayName>HealthcareAPI</DisplayName>
-    <LastModifiedAt>1527739112635</LastModifiedAt>
+    <LastModifiedAt>1532735699813</LastModifiedAt>
     <LastModifiedBy>cvonsee@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:e7c778fb186b8f0ee4521ec21f2d77cdf982b6d1b0fa71c17a4f008436a713f440fb6ce525b65945f0eae8201e9c4ff339440b01292f8d4a2bb804a3ec01c2a5</ManifestVersion>
+    <ManifestVersion>SHA-512:0ec68dd0333279acfc6e7e54949957d718969573b6db8eceb8a3cae8aa354a86dd3a2a606a6e6df852a8de20ce842748b46ac8c4d54dcb29d7cbc6af4a94c7a9</ManifestVersion>
     <Policies>
         <Policy>CreateHCAuthHeader</Policy>
         <Policy>ExtractEntityIdFromPath</Policy>
+        <Policy>ExtractEntityTypeOnlyFromPath</Policy>
+        <Policy>HPX_Fault_UnsupportedOperation</Policy>
+        <Policy>RaiseFaultUnauthorized</Policy>
         <Policy>SetEntityNamePractitioner</Policy>
         <Policy>SetHealthcareDatasetProperties</Policy>
         <Policy>remove-header-authorization</Policy>
@@ -24,6 +27,7 @@
     <Spec></Spec>
     <TargetServers/>
     <TargetEndpoints>
-        <TargetEndpoint>default</TargetEndpoint>
+        <TargetEndpoint>withID</TargetEndpoint>
+        <TargetEndpoint>withoutID</TargetEndpoint>
     </TargetEndpoints>
 </APIProxy>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractEntityIdFromPath">
-    <DisplayName>ExtractEntityIdFromPath</DisplayName>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractEntityTypeOnlyFromPath">
+    <DisplayName>ExtractEntityTypeOnlyFromPath</DisplayName>
     <Properties/>
     <URIPath>
-        <Pattern ignoreCase="false">/{entity}/{id}</Pattern>
+        <Pattern ignoreCase="false">/{entity}</Pattern>
     </URIPath>
     <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
     <Source clearPayload="false">request</Source>

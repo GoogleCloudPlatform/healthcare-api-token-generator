@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractSANameAndKey">
+    <DisplayName>ExtractSANameAndKey</DisplayName>
+    <Properties/>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <JSONPayload>
+        <Variable name="key_email">
+            <JSONPath>$.client_email</JSONPath>
+        </Variable>
+        <Variable name="sa_key">
+            <JSONPath>$.private_key</JSONPath>
+        </Variable>
+        <Variable name="private_key_id">
+            <JSONPath>$.private_key_id</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">private.iam.gcpClientApiSecret</Source>
+    <VariablePrefix>private.gcp</VariablePrefix>
+</ExtractVariables>

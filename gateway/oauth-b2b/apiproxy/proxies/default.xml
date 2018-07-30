@@ -55,6 +55,7 @@
                 </Step>
                 <Step>
                     <Name>RaiseFaultInvalidRequest</Name>
+                    <!-- <Condition>(authRequest.applicationName == null) || (authRequest.grantType == null) || (authRequest.scopes == null)</Condition> -->
                     <Condition>(authRequest.grantType == null) || (authRequest.scopes == null)</Condition>
                 </Step>
                 <Step>
@@ -69,20 +70,13 @@
                     <Condition>(private.iam.gcpClientApiSecret == null)</Condition>
                 </Step>
                 <Step>
-                    <Name>CreateAuthRequestPayload</Name>
+                    <Name>ExtractSANameAndKey</Name>
+                </Step>
+                <Step>
+                    <Name>JWT-GenerateGoogleToken</Name>
                 </Step>
             </Request>
             <Response>
-                <Step>
-                    <Name>RaiseFaultUnauthorized</Name>
-                    <Condition>response.status.code != 200 </Condition>
-                </Step>
-                <Step>
-                    <Name>ExtractAuthResponse</Name>
-                </Step>
-                <Step>
-                    <Name>ConvertExpirationToString</Name>
-                </Step>
                 <Step>
                     <Name>GetAppAttributes</Name>
                 </Step>
@@ -98,12 +92,6 @@
                 </Step>
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/accesstoken") and (request.verb = "POST")</Condition>
-        </Flow>
-        <Flow name="generate_access_token_cors">
-            <Step>
-                <Name>HPX_CORSPreflight</Name>
-            </Step>
-            <Condition>(proxy.pathsuffix MatchesPath "/accesstoken") and (request.verb = "OPTIONS")</Condition>
         </Flow>
         <!-- Default flow catches any invalid request path/verb combination. -->
         <Flow name="default">
@@ -139,6 +127,5 @@
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
     <RouteRule name="default">
-        <TargetEndpoint>TargetEndpoint-1</TargetEndpoint>
     </RouteRule>
 </ProxyEndpoint>

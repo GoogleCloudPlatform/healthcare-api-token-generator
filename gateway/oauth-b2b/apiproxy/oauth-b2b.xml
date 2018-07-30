@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="7" name="oauth-b2b">
+<APIProxy revision="16" name="oauth-b2b">
     <Basepaths>/b2b/oauth</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1526590716075</CreatedAt>
+    <CreatedAt>1532977584018</CreatedAt>
     <CreatedBy>cvonsee@google.com</CreatedBy>
     <Description></Description>
     <DisplayName>oauth-b2b</DisplayName>
-    <LastModifiedAt>1529436496558</LastModifiedAt>
+    <LastModifiedAt>1532977584018</LastModifiedAt>
     <LastModifiedBy>cvonsee@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:f827486003fa6c2505ed0b6e2277b52d73bc67148365d273902bc6ce8fbf08e4f996e3fceffe3e602c1c6fb6f51b2531ddaf2b5431b9fca5b4dc9ff52a66bb74</ManifestVersion>
+    <ManifestVersion>SHA-512:9115052f4d53caf170d9c24dde4fa0fe43aa9823b2da79c78ddf954ed8bccb03539056f1fcc619290bd4df8ab4ca7ef85e5e52e4afcaea4e6eafee8d4b8d74a8</ManifestVersion>
     <Policies>
         <Policy>AssignApplicationName</Policy>
         <Policy>ConvertExpirationToString</Policy>
-        <Policy>CreateAuthRequestPayload</Policy>
         <Policy>DecodeKeySecret</Policy>
         <Policy>ExtractAppAttributesFromXml</Policy>
-        <Policy>ExtractAuthResponse</Policy>
+        <Policy>ExtractSANameAndKey</Policy>
         <Policy>GetAppAttributes</Policy>
         <Policy>GetIAMCredentials</Policy>
         <Policy>GetRequestParams</Policy>
@@ -25,6 +24,7 @@
         <Policy>HPX_LogMessage</Policy>
         <Policy>HPX_RaiseFault_Generic</Policy>
         <Policy>HPX_SetLogsData</Policy>
+        <Policy>JWT-GenerateGoogleToken</Policy>
         <Policy>RaiseFaultInvalidRequest</Policy>
         <Policy>RaiseFaultUnauthorized</Policy>
         <Policy>RemoveTargetSuffix</Policy>
@@ -39,7 +39,5 @@
     </Resources>
     <Spec></Spec>
     <TargetServers/>
-    <TargetEndpoints>
-        <TargetEndpoint>TargetEndpoint-1</TargetEndpoint>
-    </TargetEndpoints>
+    <TargetEndpoints/>
 </APIProxy>

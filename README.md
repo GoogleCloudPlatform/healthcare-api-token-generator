@@ -2,8 +2,8 @@
 
 As part of its Healthcare and Life Sciences vertical the Google Cloud Platform (GCP) provides a set of APIs
 and data stores that can be used to enable secure storage and retrieval of healthcare data, and also to initiate
-processing of that data such as de-identification, validation and normalization, data analysis, and so on.
-APIs and data stores are available for DICOM (imaging), HL7 v2 and FHIR modalities.
+data processing, data analysis, and so on. APIs and data stores are available for DICOM (imaging), HL7 v2 and FHIR
+modalities.
 
 In order to gain access to and use these APIs, an OAuth2 access token is needed. For some applications tokens can be
 generated using the "oauth2l" command line tool (https://github.com/google/oauth2l), but in many cases applications need

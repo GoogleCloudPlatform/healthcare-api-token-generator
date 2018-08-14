@@ -38,6 +38,16 @@
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/*/**") and (request.verb = "GET")</Condition>
         </Flow>
+        <Flow name="queryEntities">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>ExtractEntityTypeOnlyFromPath</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/*") and (request.verb = "GET")</Condition>
+        </Flow>
         <Flow name="postEntity">
             <Description/>
             <Request>

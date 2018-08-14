@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="7" name="fhir-endpoints">
+<APIProxy revision="11" name="fhir-endpoints">
     <Basepaths>/v1/hcapi</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1529442358784</CreatedAt>
+    <CreatedAt>1534205299569</CreatedAt>
     <CreatedBy>cvonsee@google.com</CreatedBy>
     <Description></Description>
     <DisplayName>HealthcareAPI</DisplayName>
-    <LastModifiedAt>1532735699813</LastModifiedAt>
+    <LastModifiedAt>1534205299569</LastModifiedAt>
     <LastModifiedBy>cvonsee@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:0ec68dd0333279acfc6e7e54949957d718969573b6db8eceb8a3cae8aa354a86dd3a2a606a6e6df852a8de20ce842748b46ac8c4d54dcb29d7cbc6af4a94c7a9</ManifestVersion>
+    <ManifestVersion>SHA-512:b9246b2a0f76df23979f0149790516be010f6950f30818ea4808b81dbdd3d159c8853888705df8fdc0c93e5a4ead3a21ed19f3224c05ced158eba8477caf8a5c</ManifestVersion>
     <Policies>
         <Policy>CreateHCAuthHeader</Policy>
         <Policy>ExtractEntityIdFromPath</Policy>

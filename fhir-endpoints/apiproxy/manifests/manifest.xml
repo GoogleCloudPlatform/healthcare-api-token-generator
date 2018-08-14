@@ -12,7 +12,7 @@
         <VersionInfo resourceName="verify-oauth-v2-access-token" version="SHA-512:be186ad133f93aafcac3d31bcb907dc849e4d8d10dadc63132cec9986bb306f937d7e9786a40be6ba66e04f4239189c3197d9df3c0ccbb30d79b4bd70231894e"/>
     </Policies>
     <ProxyEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:aa6637ef9846b42440d1ddf2a644d919431149c8c568e737067afda998bf152f71197a62a2518a6c02155a57acd63ae80ff38cf4c7e919363394f797ed330bbd"/>
+        <VersionInfo resourceName="default" version="SHA-512:3285c907cf8ef6ddf402e9298dd6dbbaf91f51ba40c875e237331644450af7c538007802cc7b51fae01abaa4a284aea94724764b1e5e244f54a480cc34b17d5e"/>
     </ProxyEndpoints>
     <Resources/>
     <SharedFlows/>

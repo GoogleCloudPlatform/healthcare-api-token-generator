@@ -82,8 +82,8 @@ directory:
 
 ``` mvn clean deploy -P <profile-name> -Dusername=<apigee-userid> -Dpassword=<apigee-password> -Dorgname=<apigee-orgname> ```
 
-where "<profile-name>" is the Maven profile name, "<apigee-userid>" and "<apigee-password>" are the credentials for the
-Apigee account to be used when importing and deploying proxies, and "<apigee-orgname>" is the Apigee organization name.
+where "profile-name" is the Maven profile name, "apigee-userid" and "apigee-password" are the credentials for the
+Apigee account to be used when importing and deploying proxies, and "apigee-orgname" is the Apigee organization name.
 In this example the Apigee environment name to be used to deploy the proxies is specified in the Maven profile, but this
 can be overridden on the command line as well.
 

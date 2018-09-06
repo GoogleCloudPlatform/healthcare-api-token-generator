@@ -123,7 +123,7 @@ curl -X POST \
   -d '{ "name" : "<app>", "value" : "<creds>" }'
 ```
 
-You will need to update the org, env, authorization (base64 encoded value of your Apigee username:Apigee password), app and creds
+where "app" is the application name for which the credentials apply, and "creds" is the complete IAM service account key to be used for this application. You will need to update the org, env, authorization (base64 encoded value of your Apigee username:Apigee password), app and creds
 
 Once the above curl is successful, you should be able to see the KVM entries in the UI
 

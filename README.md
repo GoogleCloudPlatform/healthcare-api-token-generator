@@ -104,6 +104,7 @@ Once these values are set, the API proxies provided in this solution will automa
 In the [edge.json](./oauth-b2b/edge.json) file, please update the `<appName>` and `<credentials>` for the appropriate environment. 
 
 `<appName>` - insert the name of the Apigee application definition for the application that will use the key. 
+  
 `<credentials>` - insert the IAM service account key
 
 This name is used to find the appropriate IAMkey for a given application.  While multiple applications can use the same key, each application must have a copy of the key stored in the KVM. 

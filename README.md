@@ -119,6 +119,7 @@ To create the IAM entry within this KVM, run the following curl command
 curl -X POST \
   https://api.enterprise.apigee.com/v1/organizations/<org>/environments/<env>/keyvaluemaps/iam_credentials/entries \
   -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
   -H 'Authorization: Basic <base64-encoded-username-and-password>' \
   -d '{ "name" : "<app>", "value" : "<creds>" }'
 ```

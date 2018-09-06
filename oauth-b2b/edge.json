@@ -1,0 +1,52 @@
+{
+    "version": "1.0",
+    "envConfig": {
+        "dev": {
+          "kvms": [
+              {
+                  "name": "iam_credentials",
+                  "encrypted": true,
+                  "entry": [
+                      {
+                          "name": "<appName>",
+                          "value": "<credentials>"
+                      } 
+                  ]
+              }
+          ]
+        },
+        "test": {
+          "kvms": [
+              {
+                  "name": "iam_credentials",
+                  "encrypted": true,
+                  "entry": [
+                      {
+                          "name": "<appName>",
+                          "value": "<credentials>"
+                      }
+                  ]
+              }
+          ]
+        },
+        "prod": {
+          "kvms": [
+              {
+                  "name": "iam_credentials",
+                  "encrypted": true,
+                  "entry": [
+                      {
+                          "name": "<appName>",
+                          "value": "<credentials>"
+                      }
+                  ]
+              }
+          ]
+        }
+    },
+    "orgConfig": {
+        "apiProducts": [],
+        "developers": [],
+        "developerApps": {}
+    }
+}

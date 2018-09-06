@@ -74,20 +74,6 @@ deployments to be configured.  The POM in this directory contains the profiles f
 specify (for example) the Apigee management API endpoint.  You should review this before starting the deployment
 process.
 
-
-
-### Packaging, importing and deploying the proxies
-To make these proxies available in your Apigee environment, execute the following command from the repository's root
-directory:
-
-``` mvn clean deploy -P <profile-name> -Dusername=<apigee-userid> -Dpassword=<apigee-password> -Dorgname=<apigee-orgname> ```
-
-where "profile-name" is the Maven profile name, "apigee-userid" and "apigee-password" are the credentials for the
-Apigee account to be used when importing and deploying proxies, and "apigee-orgname" is the Apigee organization name.
-In this example the Apigee environment name to be used to deploy the proxies is specified in the Maven profile, but this
-can be overridden on the command line as well.
-
-
 ### Generating IAM service account keys
 Information on how to create IAM service account keys can be found in the [GCP documentation](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 Service keys you create for use with the Cloud Healthcare APIs should have the appropriate permissions for the type of
@@ -95,17 +81,6 @@ data to be accessed (DICOM or FHIR, for example) and the nature of the access to
 
 Note that you will not be able to assign Cloud Healthcare API permissions to a service account key unless the Healthcare
 API has been enabled for your project.
-
-
-### Creating an encrypted KVM and storing IAM service account keys
-Encrypted key-value maps (KVMs) can be created using either the Apigee UI or its Management API.  Please see the
-[Apigee documentation](https://docs.apigee.com/api-platform/cache/key-value-maps) for information on how to create KVMs.
-
-Once the encrypted KVM is created, you can insert the IAM service account key with a name that matches the name of the
-Apigee application definition for the application that will use the key.  This name is used to find the appropriate IAM
-key for a given application.  While multiple applications can use the same key, each application must have a copy of the
-key stored in the KVM.
-
 
 ### Configuring Developer and Developer Application entities
 Apigee developer and developer application entities provide metadata about applications that can access APIs hosted in
@@ -123,8 +98,21 @@ Four values need to be created in custom atributes for each application:
 * "dataset" - the name of the dataset to which access is to be granted
 * "fhirstore" - the name of the FHIR data store to which access is to be granted.
 
-Once these values are set, the API proxies provided in this solution will automatically map them to the appropriate
-Healthcare API calls.
+Once these values are set, the API proxies provided in this solution will automatically map them to the appropriate Healthcare API calls.
+
+### Creating an encrypted KVM and storing IAM service account keys
+In the edge.json file, please update the `<appName>` and `<credentials>` for the appropriate environment. You can insert the IAM service account key with a name that matches the name of the Apigee application definition for the application that will use the key. This name is used to find the appropriate IAMkey for a given application.  While multiple applications can use the same key, each application must have a copy of the key stored in the KVM. 
+
+The Maven build will automatically create the Encrypted KVM in Apigee. 
+
+### Packaging, importing and deploying the proxies
+To make these proxies available in your Apigee environment, execute the following command from the repository's root directory:
+
+``` mvn clean deploy -P <profile-name> -Dusername=<apigee-userid> -Dpassword=<apigee-password> -Dorgname=<apigee-orgname> -Dapigee.config.options=update```
+
+where "profile-name" is the Maven profile name, "apigee-userid" and "apigee-password" are the credentials for the Apigee account to be used when importing and deploying proxies, and "apigee-orgname" is the Apigee organization name.
+
+In this example the Apigee environment name to be used to deploy the proxies is specified in the Maven profile, but this can be overridden on the command line as well.
 
 
 ## Testing the implementation
@@ -154,8 +142,7 @@ curl -X GET \
 
 
 ## How it works
-When an application requests an Oauth access token to access the Cloud Healthcare FHIR API, the steps shown in the diagram below
-occur:
+When an application requests an Oauth access token to access the Cloud Healthcare FHIR API, the steps shown in the diagram below occur:
 
 ```
 API                                                           Cloud Healthcare
@@ -186,15 +173,9 @@ token response  <-------------- Return Apigee token
 ```
 
 
-Apigee uses its built-in capabilities to identify the requesting application based on the API key and secret presented
-in the token request.  Once the application is identified, the information about the Cloud Healthcare API stores the
-application is eligible to access are retrieved, the appropriate IAM service key is retrieved from encrypted storage, and
-a JWT token is generated. Apigee then generates an access token of its own, associates the Cloud Healthcare API info and
-JWT token with that self-generated token, and returns the self-generated token to the requesting application.  At no point
-is information about GCP, the service account used, or the configured FHIR store provided to the requesting application.
+Apigee uses its built-in capabilities to identify the requesting application based on the API key and secret presented in the token request.  Once the application is identified, the information about the Cloud Healthcare API stores the application is eligible to access are retrieved, the appropriate IAM service key is retrieved from encrypted storage, and a JWT token is generated. Apigee then generates an access token of its own, associates the Cloud Healthcare API info and JWT token with that self-generated token, and returns the self-generated token to the requesting application.  At no point is information about GCP, the service account used, or the configured FHIR store provided to the requesting application.
 
-When that application makes a request for data, the token is provided in the HTTP "Authorization" header as a "Bearer"
-token:
+When that application makes a request for data, the token is provided in the HTTP "Authorization" header as a "Bearer" token:
 
 ```
 API                                                           Cloud Healthcare
@@ -231,14 +212,12 @@ Receive response <------------- Send response to client
 
 
 ## Special considerations
-* The Apigee API proxies in this solution do not currently contain any traffic management policies.  You can easily add
-these and configure them to your specific requirements using the Apigee UI or your desktop text editor.
+* The Apigee API proxies in this solution do not currently contain any traffic management policies.  You can easily add these and configure them to your specific requirements using the Apigee UI or your desktop text editor.
 
 
 ## Having problems?
 If you run into any problems or issues with this solution, please file a ticket in the Github repository.
 
-In addition, you can find help with general Apigee-related questions in the [Apigee documentation](https://docs.apigee.com)
-or in the [Apigee Community](https://community.apigee.com)
+In addition, you can find help with general Apigee-related questions in the [Apigee documentation](https://docs.apigee.com) or in the [Apigee Community](https://community.apigee.com)
 
 

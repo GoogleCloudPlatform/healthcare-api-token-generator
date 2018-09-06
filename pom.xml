@@ -15,7 +15,8 @@
 		<main.basedir>${project.basedir}</main.basedir>
 		<maven.clean.plugin.version>2.5</maven.clean.plugin.version>
 		<maven.resources.plugin.version>2.6</maven.resources.plugin.version>
-		<apigee.maven.plugin.version>1.1.6</apigee.maven.plugin.version>
+		<apigee.maven.deploy.plugin.version>1.1.7</apigee.maven.deploy.plugin.version>
+		<apigee.maven.config.plugin.version>1.2.1</apigee.maven.config.plugin.version>
 		<!-- The following is needed to avoid running Maven deploy plugin.
              See https://github.com/spotify/dockerfile-maven/issues/162 -->
 		<maven.deploy.skip>true</maven.deploy.skip>
@@ -28,52 +29,20 @@
 	                <artifactId>maven-clean-plugin</artifactId>
 	                <version>${maven.clean.plugin.version}</version>
 	            </plugin>
-
 	            <plugin>
 	                <artifactId>maven-resources-plugin</artifactId>
 	                <version>${maven.resources.plugin.version}</version>
-	                <executions>
-	                    <execution>
-	                        <phase>package</phase>
-	                        <goals>
-	                            <goal>copy-resources</goal>
-	                        </goals>
-	                        <configuration>
-	                            <overwrite>true</overwrite>
-	                            <encoding>UTF-8</encoding>
-	                             <echo message="basedir parent : ${basedir}"/>
-	                            <outputDirectory>${basedir}/target/apiproxy</outputDirectory>
-	                            <resources>
-	                                <resource>
-	                                    <directory>apiproxy</directory>
-	                                </resource>
-	                            </resources>
-	                        </configuration>
-	                    </execution>
-	                </executions>
 	            </plugin>
-			
 	            <plugin>
 	                <groupId>io.apigee.build-tools.enterprise4g</groupId>
 	                <artifactId>apigee-edge-maven-plugin</artifactId>
-	                <version>${apigee.maven.plugin.version}</version>
-	                <executions>
-	                    <execution>
-	                        <id>configure-bundle</id>
-	                        <phase>package</phase>
-	                        <goals>
-	                            <goal>configure</goal>
-	                        </goals>
-	                    </execution>
-	                    <execution>
-	                        <id>deploy-bundle</id>
-	                        <phase>install</phase>
-	                        <goals>
-	                            <goal>deploy</goal>
-	                        </goals>
-	                    </execution>
-	                </executions>
+	                <version>${apigee.maven.deploy.plugin.version}</version>
 	            </plugin>
+	            <plugin>
+		          <groupId>com.apigee.edge.config</groupId>
+		          <artifactId>apigee-config-maven-plugin</artifactId>
+		          <version>${apigee.maven.config.plugin.version}</version>
+		        </plugin>
 	        </plugins>
 		</pluginManagement>
     </build>
@@ -92,7 +61,32 @@
 	                <apigee.org>${org}</apigee.org>
 	                <apigee.username>${username}</apigee.username>
 	                <apigee.password>${password}</apigee.password>
-	                <apigee.options>${options}</apigee.options>
+	                <apigee.options>update</apigee.options>
+	                <apigee.revision>${revision}</apigee.revision> <!-- used while trying to update revision, use when option=update only -->
+	                <apigee.tokenurl>${tokenurl}</apigee.tokenurl> <!-- optional: oauth -->
+	                <apigee.mfatoken>${mfatoken}</apigee.mfatoken> <!-- optional: mfa -->
+	                <apigee.authtype>${authtype}</apigee.authtype> <!-- optional: oauth|basic(default) -->
+	                <apigee.bearer>${bearer}</apigee.bearer> <!-- optional: Bearer token override -->
+	                <apigee.refresh>${refresh}</apigee.refresh> <!-- optional: Refresh token override -->
+	                <apigee.clientid>${clientId}</apigee.clientid> <!-- optional: Oauth Client Id - Default is edgecli-->
+	                <apigee.clientsecret>${clientSecret}</apigee.clientsecret> <!-- optional: Oauth Client Secret Default is edgeclisecret-->
+					<!--apigee.override.delay>10</apigee.override.delay-->
+					<!--apigee.delay>1000</apigee.delay-->
+	            </properties>
+	        </profile>
+	        <profile>
+	            <id>test</id>
+	            <properties>
+	                <org>${orgname}</org>  <!-- replace with Apigee org name -Dorg testmyapi -->
+	                <options>validate</options>
+	                <apigee.profile>test</apigee.profile>
+	                <apigee.env>test</apigee.env>
+	                <apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
+	                <apigee.apiversion>v1</apigee.apiversion>
+	                <apigee.org>${org}</apigee.org>
+	                <apigee.username>${username}</apigee.username>
+	                <apigee.password>${password}</apigee.password>
+	                <apigee.options>update</apigee.options>
 	                <apigee.revision>${revision}</apigee.revision> <!-- used while trying to update revision, use when option=update only -->
 	                <apigee.tokenurl>${tokenurl}</apigee.tokenurl> <!-- optional: oauth -->
 	                <apigee.mfatoken>${mfatoken}</apigee.mfatoken> <!-- optional: mfa -->
@@ -117,7 +111,7 @@
 	                <apigee.org>${org}</apigee.org>
 	                <apigee.username>${username}</apigee.username>
 	                <apigee.password>${password}</apigee.password>
-	                <apigee.options>${options}</apigee.options>
+	                <apigee.options>override</apigee.options>
 	                <apigee.revision>${revision}</apigee.revision> <!-- used while trying to update revision, use when option=update only -->
 	                <apigee.tokenurl>${tokenurl}</apigee.tokenurl> <!-- optional: oauth -->
 	                <apigee.mfatoken>${mfatoken}</apigee.mfatoken> <!-- optional: mfa -->

@@ -1,0 +1,37 @@
+{
+    "version": "1.0",
+    "envConfig": {
+        "dev": {
+          "kvms": [
+              {
+                  "name": "iam_credentials",
+                  "encrypted": true,
+                  "entry": []
+              }
+          ]
+        },
+        "test": {
+          "kvms": [
+              {
+                  "name": "iam_credentials",
+                  "encrypted": true,
+                  "entry": []
+              }
+          ]
+        },
+        "prod": {
+          "kvms": [
+              {
+                  "name": "iam_credentials",
+                  "encrypted": true,
+                  "entry": []
+              }
+          ]
+        }
+    },
+    "orgConfig": {
+        "apiProducts": [],
+        "developers": [],
+        "developerApps": {}
+    }
+}

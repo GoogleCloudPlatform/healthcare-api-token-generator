@@ -100,29 +100,38 @@ Four values need to be created in custom atributes for each application:
 
 Once these values are set, the API proxies provided in this solution will automatically map them to the appropriate Healthcare API calls.
 
-### Creating an encrypted KVM and storing IAM service account keys
-In the [edge.json](./oauth-b2b/edge.json) file, please update the `<appName>` and `<credentials>` for the appropriate environment. 
-
-`<appName>` - insert the name of the Apigee application definition for the application that will use the key. 
-  
-`<credentials>` - insert the IAM service account key
-
-This name is used to find the appropriate IAMkey for a given application.  While multiple applications can use the same key, each application must have a copy of the key stored in the KVM. 
-
-The Maven build will automatically create the Encrypted KVM in Apigee. 
-
 ### Packaging, importing and deploying the proxies
 To make these proxies available in your Apigee environment, execute the following command from the repository's root directory:
 
-``` mvn clean deploy -P <profile-name> -Dusername=<apigee-userid> -Dpassword=<apigee-password> -Dorgname=<apigee-orgname> -Dapigee.config.options=update```
+``` mvn clean deploy -P <profile-name> -Dusername=<apigee-userid> -Dpassword=<apigee-password> -Dorgname=<apigee-orgname> -Dapigee.config.options=create```
 
-where "profile-name" is the Maven profile name, "apigee-userid" and "apigee-password" are the credentials for the Apigee account to be used when importing and deploying proxies, and "apigee-orgname" is the Apigee organization name.
+where "profile-name" is the Maven profile name, "apigee-userid" and "apigee-password" are the credentials for the Apigee account to be used when importing and deploying proxies, "apigee-orgname" is the Apigee organization name and "apigee.config.options" is used for creating the KVM configuration in Apigee
 
 In this example the Apigee environment name to be used to deploy the proxies is specified in the Maven profile, but this can be overridden on the command line as well.
 
 
+### Creating an encrypted KVM and storing IAM service account keys
+Once the Maven build is successful, two proxies (fhir-endpoints and oauth-b2b) will be deployed. Along with that, an Encrypted KVM called `iam_credentials` will be created. You can view it using the UI by clicking *Admin --> Environments* on the left menu. Make sure you select the appropriate environment
+
+To create the IAM entry within this KVM, run the following curl command
+
+```
+curl -X POST \
+  https://api.enterprise.apigee.com/v1/organizations/<org>/environments/<env>/keyvaluemaps/iam_credentials/entries \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Basic <base64-encoded-username-and-password>' \
+  -d '{ "name" : "<app>", "value" : "<creds>" }'
+```
+
+You will need to update the org, env, authorization (base64 encoded value of your Apigee username:Apigee password), app and creds
+
+Once the above curl is successful, you should be able to see the KVM entries in the UI
+
+![](./media/kvm.png)
+
+
 ## Testing the implementation
-Once the complete solution is deployed, you can generate an OAuth 2 token using a "curl" command similar to this one:
+Once the complete solution is deployed and the KVM entries are created, you can generate an OAuth 2 token using a "curl" command similar to this one:
 
 ```
 curl -X POST \

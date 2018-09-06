@@ -6,12 +6,7 @@
               {
                   "name": "iam_credentials",
                   "encrypted": true,
-                  "entry": [
-                      {
-                          "name": "<appName>",
-                          "value": "<credentials>"
-                      } 
-                  ]
+                  "entry": []
               }
           ]
         },
@@ -20,12 +15,7 @@
               {
                   "name": "iam_credentials",
                   "encrypted": true,
-                  "entry": [
-                      {
-                          "name": "<appName>",
-                          "value": "<credentials>"
-                      }
-                  ]
+                  "entry": []
               }
           ]
         },
@@ -34,12 +24,7 @@
               {
                   "name": "iam_credentials",
                   "encrypted": true,
-                  "entry": [
-                      {
-                          "name": "<appName>",
-                          "value": "<credentials>"
-                      }
-                  ]
+                  "entry": []
               }
           ]
         }

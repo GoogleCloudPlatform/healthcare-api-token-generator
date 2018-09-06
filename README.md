@@ -101,7 +101,7 @@ Four values need to be created in custom atributes for each application:
 Once these values are set, the API proxies provided in this solution will automatically map them to the appropriate Healthcare API calls.
 
 ### Creating an encrypted KVM and storing IAM service account keys
-In the edge.json file, please update the `<appName>` and `<credentials>` for the appropriate environment. You can insert the IAM service account key with a name that matches the name of the Apigee application definition for the application that will use the key. This name is used to find the appropriate IAMkey for a given application.  While multiple applications can use the same key, each application must have a copy of the key stored in the KVM. 
+In the [edge.json](./oauth-b2b/edge.json) file, please update the `<appName>` and `<credentials>` for the appropriate environment. You can insert the IAM service account key with a name that matches the name of the Apigee application definition for the application that will use the key. This name is used to find the appropriate IAMkey for a given application.  While multiple applications can use the same key, each application must have a copy of the key stored in the KVM. 
 
 The Maven build will automatically create the Encrypted KVM in Apigee. 
 

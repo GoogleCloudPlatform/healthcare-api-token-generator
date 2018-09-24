@@ -59,7 +59,10 @@
                     <Condition>(authRequest.grantType == null) || (authRequest.scopes == null)</Condition>
                 </Step>
                 <Step>
-                    <Name>AssignApplicationName</Name>
+                    <Name>AssignApplicationNameAndDefaultExpiration</Name>
+                </Step>
+                <Step>
+                    <Name>ConvertExpirationToString</Name>
                 </Step>
                 <Step>
                     <FaultRules/>
@@ -126,6 +129,5 @@
         <BasePath>/oauth2</BasePath>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
-    <RouteRule name="default">
-    </RouteRule>
+    <RouteRule name="default"/>
 </ProxyEndpoint>

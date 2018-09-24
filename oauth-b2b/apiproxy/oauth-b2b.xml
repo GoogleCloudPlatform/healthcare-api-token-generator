@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="16" name="oauth-b2b">
+<APIProxy revision="2" name="oauth-b2b">
     <Basepaths>/b2b/oauth</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1532977584018</CreatedAt>
+    <CreatedAt>1537826654108</CreatedAt>
     <CreatedBy>cvonsee@google.com</CreatedBy>
     <Description></Description>
     <DisplayName>oauth-b2b</DisplayName>
-    <LastModifiedAt>1532977584018</LastModifiedAt>
+    <LastModifiedAt>1537829779552</LastModifiedAt>
     <LastModifiedBy>cvonsee@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:9115052f4d53caf170d9c24dde4fa0fe43aa9823b2da79c78ddf954ed8bccb03539056f1fcc619290bd4df8ab4ca7ef85e5e52e4afcaea4e6eafee8d4b8d74a8</ManifestVersion>
+    <ManifestVersion>SHA-512:d15c393344e6fc4bbcaed8f512efa68f118402b20dd114efefdf48757632a0b168d5d006affcaa421bbb0ff0be6e988bd5f9ed3474ed8f72e4aeb97cc8e84e47</ManifestVersion>
     <Policies>
-        <Policy>AssignApplicationName</Policy>
+        <Policy>AssignApplicationNameAndDefaultExpiration</Policy>
         <Policy>ConvertExpirationToString</Policy>
         <Policy>DecodeKeySecret</Policy>
         <Policy>ExtractAppAttributesFromXml</Policy>

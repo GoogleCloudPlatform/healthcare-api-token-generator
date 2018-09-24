@@ -1,4 +1,5 @@
- var expiresIn = context.getVariable("private.authResponse.expiresIn");
+ var expiresIn = context.getVariable("expiresInSec");
  // secs to msec
- expiresIn = expiresIn * 1000;
- context.setVariable("expiresInMsec", expiresIn.toString());
+ context.setVariable("expiresInMsec", (expiresIn * 1000).toString());
+ // add 's' for JWT polic
+ context.setVariable("expiresInSecJWT", expiresIn.toString() + 's');

@@ -11,7 +11,7 @@
     <Scope>authRequest.scopes</Scope>
     <GenerateResponse enabled="true"/>
     <Attributes>
-        <Attribute name="IAM_token" display="true" ref="private.authResponse.accessToken"/>
+        <Attribute name="IAM_token" display="true" ref="response.content"/>
         <Attribute name="IAM_token_expiration" display="true" ref="expiresInSec"/>
         <Attribute name="HC_dataset" display="true" ref="hcproperties.hc_dataset"/>
         <Attribute name="HC_location" display="true" ref="hcproperties.hc_location"/>

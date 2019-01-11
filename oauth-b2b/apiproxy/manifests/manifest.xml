@@ -5,14 +5,15 @@
         <VersionInfo resourceName="ConvertExpirationToString" version="SHA-512:a880f7cbddbfefba0ed571c04062e4be1fb42ec9b9be2d0d39139932ea7bb55cdfd44c1b9cbfe170bce98219a85d3ce8297a1227344f89e5e4834d4776c878bc"/>
         <VersionInfo resourceName="DecodeKeySecret" version="SHA-512:ba6908a894cfd3eb4643e028a9d69c1aff127f70d3c50e11e3ea100d2bf159b2eb6c5e2a136a5cd00ae4e229a87f170a848f642327008717d25ed0c1a45cfa62"/>
         <VersionInfo resourceName="ExtractAppAttributesFromXml" version="SHA-512:f00f20e042187ed25214fbb00e1ae5d9bb49d8b58b7c55b99cef82af085bc9219cb4b81ea2c817ac022a8ce96c0c0200cd6dca9d77609948169b2a058c444e2b"/>
+        <VersionInfo resourceName="ExtractPayloadVariables" version="SHA-512:bc292319b52265e41f2b9700682e22bfa656a7de94624cf85caf6a466850d3299c5281437ecfec4b8e7e5a68031e468a20862408317d1037ddaf51266a1dea64"/>
         <VersionInfo resourceName="ExtractSANameAndKey" version="SHA-512:1ee6bf35ccccec84e87910957390a60fed1d685dc9e707f9a2e81789c152bf59b2da2852b607b9d37c21c40e32c55c2205ec2eb2af41a03c97c9087d9d0ba8ff"/>
+        <VersionInfo resourceName="FormatHostedTargetRequest" version="SHA-512:63a27273ce43a6d8be7a1faa5b8d53aad69d6b74ad8163a03872ae307361fb3ddc5962409bb75c9a31b65c1ef1f175e30004bc1cfd9ff07974ed4bd488cb6949"/>
         <VersionInfo resourceName="GetAppAttributes" version="SHA-512:ec3dbdf79e77d9bbbfaeb784fa7d89b21aa323f2df6c3729d24589704657944e276565d85daa1415701a7490ef25d7a080d8135fe1e9367902ab6c6143a3df52"/>
         <VersionInfo resourceName="GetIAMCredentials" version="SHA-512:ee03ddc98436c9099d3235fe6e1dbad2c716856229964e40cedf4a45dd77873c4c5e6c3e34321d9b8624a2b96da07acfdd91983ef53c1c376709101dc4112eb5"/>
         <VersionInfo resourceName="GetRequestParams" version="SHA-512:c97776fb16bddb91be59b65c1fca4a4ebef65e1a55ed0e73a64e075efd6924d5b471f96f8f7dcb3a4e9330b279e283205efda7513d32be02abb30773ed3a1396"/>
         <VersionInfo resourceName="HPX_Fault_UnsupportedOperation" version="SHA-512:39bbccb533ee6c22ccc773750ab15b6f0403e7a6f11818477cd37ce769d6ba7d6e2318a0af3a600f6b7d4b137a091eec39696f4a32098611690afca34a7c302b"/>
-        <VersionInfo resourceName="HPX_GenerateAccessToken" version="SHA-512:0b17e190bbe186f731152384f437406b6d35939a3f54b8a858d990d52603e30b478df82e840d8a821b16cca5afaa68f1d53e20e488fec040994f9444ab2a04a4"/>
+        <VersionInfo resourceName="HPX_GenerateAccessToken" version="SHA-512:1b6f9d6f323e382a2f90ecd3bb736d1910c7ee74a870f6a169780f90d6218e8ceda60b65e89ff6158ccd6dfbd942633c8f748b94c1ff20dcbf4aa91403e14ed6"/>
         <VersionInfo resourceName="HPX_GenerateAccessToken.Response" version="SHA-512:a245fe3c9ebd8a4f3a459b1f6b8a5ca5ab7f7a1adee67505b3155098ddef9d2eaa4aac12fe9f2033d0233be6623d154d498c662b6495d5818c1be42ca3f8ed7e"/>
-        <VersionInfo resourceName="HPX_LogMessage" version="SHA-512:010ed6f6bb3c79360462ef7a16bd399a0f37e82d4482ace7c9f610829ff45f829f156ebc3aaf278a78783a92063e8ebe7b29604dd38f063587a7200320b8a87a"/>
         <VersionInfo resourceName="HPX_RaiseFault_Generic" version="SHA-512:5ffcfa39ad466b003a46958f2eec6f9c9f52071aa36171a2b117724482657f14834c43323512c7fbe3a6dee30e78385600c0fdd28bb46bd7c4b88ac23f3b3bd0"/>
         <VersionInfo resourceName="HPX_SetLogsData" version="SHA-512:b743f2f84ae28297e514769128edf0292848769d9940f1de9c3412cf39054b3a4fb50855cb41831ac1487dfb4f59c9d679d7c1230474eb2b9e97b5b58e6f1751"/>
         <VersionInfo resourceName="JWT-GenerateGoogleToken" version="SHA-512:83239cc528d90ffd5601dd924f3ef631911aa34da4a3b2a5e985d79b669a1745f4f29d89fc84d5143fbdf1180d82b26e36553c25ea768442813ffe81790111f9"/>
@@ -22,12 +23,17 @@
         <VersionInfo resourceName="VerifyApiKey" version="SHA-512:19fcca95f67a100b7be73b3eec18b032ae8415d1fcc752002881a69fb77c648e76350f5fbe5d81bdc558bba8767979ae5ae69034e4b173ca3f58f3a3b6050f60"/>
     </Policies>
     <ProxyEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:e812c25331037c9c74a580b9448731fe7ada6e0584bd40d313d9c02cc827d638f39eaa01f9891ae1d847aaf790dad4096311582fdf341a475a3944c7b43c7d42"/>
+        <VersionInfo resourceName="default" version="SHA-512:cc4549a05e9caf25cd8d4fc80a4f300a241d18298d6b6bfc171dfce5540c43e71c2b267fb133cb3c800896553c75c2edae355c1b3abd195d6605a261481fa1a6"/>
     </ProxyEndpoints>
     <Resources>
+        <VersionInfo resourceName="hosted://app.yaml" version="SHA-512:b12e23dbcfa4557519ecba1205f9ab36ab705b5d469e76e4607414a5b77ebf118a6df0654a9dc049dbefd2c4a2e8b787ef109541b6a1f2bdd29a83092f8b9095"/>
+        <VersionInfo resourceName="hosted://index.js" version="SHA-512:6de82cb74f498be865a1f27c914d651f3d70bab0e06d8ee4776fe579a03ed752a53444f8b3df7b21a4bb5c8e568f2e3762e734388a97bdcdb1616c514c26cef3"/>
+        <VersionInfo resourceName="hosted://package.json" version="SHA-512:c37a0655dd37b9470aa679dd59b3687b13c409576fc2721cc46f6b0b2161a85d0be6083e48ef4c628e3d78226b2a68cb374b820ab26377bd60cb7e0d98d6d77a"/>
         <VersionInfo resourceName="jsc://ConvertExpirationToString.js" version="SHA-512:90fab6b555b75689548aa7527c317ced0f8cd8ebd21d43606831c5b2ad69a09d8837c2b75419344b9a4d76fc45e0cd66842f8e3a5b37e7e3c410eed2e025cd51"/>
         <VersionInfo resourceName="jsc://HPX_SetLogsData.js" version="SHA-512:a0e47b85fc663cc3f34df1d8b3783dd42a9cf5b35273f1e975b13d557b61ac1b000d466f3204b2e9f081af1b4abbe712d3feed86fa2941457a52b951df9b64ee"/>
     </Resources>
     <SharedFlows/>
-    <TargetEndpoints/>
+    <TargetEndpoints>
+        <VersionInfo resourceName="TargetEndpoint-1" version="SHA-512:7c2cbd582679ecd01971c88ff1b287c7dbe6d66d041d7b865ad745235db6bdf1af6b8a49005123dfb8e839226e5a233c6bdfcc9dad69c40e06240fd48ced5002"/>
+    </TargetEndpoints>
 </Manifest>

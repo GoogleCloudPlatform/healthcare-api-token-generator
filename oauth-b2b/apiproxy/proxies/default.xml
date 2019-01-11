@@ -75,9 +75,6 @@
                 <Step>
                     <Name>ExtractSANameAndKey</Name>
                 </Step>
-                <Step>
-                    <Name>JWT-GenerateGoogleToken</Name>
-                </Step>
             </Request>
             <Response>
                 <Step>
@@ -110,24 +107,18 @@
     <PostFlow name="PostFlow">
         <Request/>
         <Response>
-            <Step>
-                <Name>HPX_SetLogsData</Name>
-                <Condition>(request.verb!="OPTIONS")</Condition>
-            </Step>
         </Response>
     </PostFlow>
     <PostClientFlow>
         <Request/>
         <Response>
-            <Step>
-                <Name>HPX_LogMessage</Name>
-                <Condition>(request.verb!="OPTIONS")</Condition>
-            </Step>
         </Response>
     </PostClientFlow>
     <HTTPProxyConnection>
         <BasePath>/oauth2</BasePath>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
-    <RouteRule name="default"/>
+    <RouteRule name="default">
+        <TargetEndpoint>TargetEndpoint-1</TargetEndpoint>
+    </RouteRule>
 </ProxyEndpoint>

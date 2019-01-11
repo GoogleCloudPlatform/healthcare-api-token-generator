@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="2" name="oauth-b2b">
+<APIProxy revision="4" name="oauth-b2b">
     <Basepaths>/b2b/oauth</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1537826654108</CreatedAt>
+    <CreatedAt>1547180651203</CreatedAt>
     <CreatedBy>cvonsee@google.com</CreatedBy>
     <Description></Description>
     <DisplayName>oauth-b2b</DisplayName>
-    <LastModifiedAt>1537829779552</LastModifiedAt>
+    <HostedManifestVersion>SHA-512:5f5c2e210d202a5ffb5105ecc520e8f5a01a4c1e4c46c228c1e1627bdbc10eca35d562adeec271e82ef2c3dbf271d5b1c4d21f4b20021a6e578db87787612910:us-west-2</HostedManifestVersion>
+    <LastModifiedAt>1547180651203</LastModifiedAt>
     <LastModifiedBy>cvonsee@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:d15c393344e6fc4bbcaed8f512efa68f118402b20dd114efefdf48757632a0b168d5d006affcaa421bbb0ff0be6e988bd5f9ed3474ed8f72e4aeb97cc8e84e47</ManifestVersion>
+    <ManifestVersion>SHA-512:75c7b25f2af7a8fca5dd966dae03186524764991b507dfa196dabee23ae02e6944276d92d580fac002e1a833f942adadb48cb071cc21e49784025e6ae14f6f03</ManifestVersion>
     <Policies>
         <Policy>AssignApplicationNameAndDefaultExpiration</Policy>
         <Policy>ConvertExpirationToString</Policy>
         <Policy>DecodeKeySecret</Policy>
         <Policy>ExtractAppAttributesFromXml</Policy>
+        <Policy>ExtractPayloadVariables</Policy>
         <Policy>ExtractSANameAndKey</Policy>
+        <Policy>FormatHostedTargetRequest</Policy>
         <Policy>GetAppAttributes</Policy>
         <Policy>GetIAMCredentials</Policy>
         <Policy>GetRequestParams</Policy>
         <Policy>HPX_Fault_UnsupportedOperation</Policy>
         <Policy>HPX_GenerateAccessToken.Response</Policy>
         <Policy>HPX_GenerateAccessToken</Policy>
-        <Policy>HPX_LogMessage</Policy>
         <Policy>HPX_RaiseFault_Generic</Policy>
         <Policy>HPX_SetLogsData</Policy>
         <Policy>JWT-GenerateGoogleToken</Policy>
@@ -36,8 +38,13 @@
     <Resources>
         <Resource>jsc://ConvertExpirationToString.js</Resource>
         <Resource>jsc://HPX_SetLogsData.js</Resource>
+        <Resource>hosted://app.yaml</Resource>
+        <Resource>hosted://index.js</Resource>
+        <Resource>hosted://package.json</Resource>
     </Resources>
     <Spec></Spec>
     <TargetServers/>
-    <TargetEndpoints/>
+    <TargetEndpoints>
+        <TargetEndpoint>TargetEndpoint-1</TargetEndpoint>
+    </TargetEndpoints>
 </APIProxy>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="FormatHostedTargetRequest">
+    <DisplayName>FormatHostedTargetRequest</DisplayName>
+    <Properties/>
+    <Set>
+        <Verb>POST</Verb>
+        <Path>/accesstoken</Path>
+        <Payload contentType="application/json">
+        { "grantType":"{requestPayload.grantType}", "scopes":"{requestPayload.scopes}", 
+          "key" : {private.iam.gcpClientApiSecret} }
+    </Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

@@ -1,0 +1,19 @@
+{
+  "name": "token-gen",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "author": "Google Inc.",
+  "scripts": {
+        "start": "node ."
+   },
+  "engines": {
+    "node": ">=6"
+  },
+  "dependencies": {
+    "gtoken": "^2.3.2",
+    "express": "^4.16.4",
+    "body-parser": "^1.18.3"
+  }
+}

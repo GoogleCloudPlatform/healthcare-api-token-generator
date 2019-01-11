@@ -189,7 +189,7 @@ token response  <-------------- Return Apigee token
 ```
 
 
-Apigee uses its built-in capabilities to identify the requesting application based on the API key and secret presented in the token request.  Once the application is identified, the information about the Cloud Healthcare API stores the application is eligible to access are retrieved, the appropriate IAM service key is retrieved from encrypted storage, and a JWT token is generated. Apigee then generates an access token of its own, associates the Cloud Healthcare API info and JWT token with that self-generated token, and returns the self-generated token to the requesting application.  At no point is information about GCP, the service account used, or the configured FHIR store provided to the requesting application.
+Apigee uses its built-in capabilities to identify the requesting application based on the API key and secret presented in the token request.  Once the application is identified, the information about the Cloud Healthcare API stores the application is eligible to access are retrieved, the appropriate IAM service key is retrieved from encrypted storage, and an OAuth2 token is generated. Apigee then generates an access token of its own, associates the Cloud Healthcare API info and OAuth2 token with that self-generated token, and returns the self-generated token to the requesting application.  At no point is information about GCP, the service account used, or the configured FHIR store provided to the requesting application.
 
 When that application makes a request for data, the token is provided in the HTTP "Authorization" header as a "Bearer" token:
 
@@ -210,7 +210,7 @@ GET /Patient/1  --------------> Validate token
                                 Format request to
                                 configured
                                 Cloud Healthcare FHIR
-                                API with JWT token
+                                API with OAuth2 token
 
                                 Issue Cloud Healthcare
                                 FHIR API request     -------> Receive FHIR request

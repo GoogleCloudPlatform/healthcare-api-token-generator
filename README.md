@@ -45,10 +45,10 @@ PLEASE NOTE: THIS IS NOT AN OFFICIALLY SUPPORTED GOOGLE PRODUCT.
 ## Prerequisites
 The following prerequisites are needed:
 
-* An Apigee SaaS or on-premises installation.  Any Apigee release that supports encrypted KVMs and JWT generation can be
-used.  While you may run the Apigee system on-premises in your data center or VPC, please keep in mind that the Cloud
-Healthcare APIs are available in Google Cloud Platform only.  Apigee has a free usage tier and other reasonably-priced
-pricing tiers; for more information and links to pricing info, see
+* An Apigee SaaS installation that supports encrypted KVMs and Node.js HostedTarget functionality (note that token generation
+has not been tested using Apigee's legacy "Trireme" Node.js implementation).  The Cloud Healthcare APIs are available in Google
+Cloud Platform only.  Apigee has a free usage tier and other reasonably-priced pricing tiers; for more information and
+links to pricing info, see
 [https://cloud.google.com/apigee-api-management/](https://cloud.google.com/apigee-api-management/).
 * An available Apigee organization and environment.  See your Apigee administrator or API program manager to obtain this
 information.

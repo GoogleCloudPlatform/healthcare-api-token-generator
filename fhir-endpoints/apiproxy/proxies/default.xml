@@ -35,7 +35,11 @@
                     <Name>ExtractEntityIdFromPath</Name>
                 </Step>
             </Request>
-            <Response/>
+            <Response>
+                <Step>
+                    <Name>relocatePayloadUrls</Name>
+                </Step>
+            </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/*/**") and (request.verb = "GET")</Condition>
         </Flow>
         <Flow name="queryEntities">
@@ -45,7 +49,11 @@
                     <Name>ExtractEntityTypeOnlyFromPath</Name>
                 </Step>
             </Request>
-            <Response/>
+            <Response>
+                <Step>
+                    <Name>relocatePayloadUrls</Name>
+                </Step>
+            </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/*") and (request.verb = "GET")</Condition>
         </Flow>
         <Flow name="postEntity">
@@ -55,7 +63,11 @@
                     <Name>ExtractEntityTypeOnlyFromPath</Name>
                 </Step>
             </Request>
-            <Response/>
+            <Response>
+                <Step>
+                    <Name>relocatePayloadUrls</Name>
+                </Step>
+            </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/*") and (request.verb = "POST")</Condition>
         </Flow>
         <!-- Default flow catches any invalid request path/verb combination. -->

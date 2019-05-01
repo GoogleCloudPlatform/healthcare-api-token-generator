@@ -17,6 +17,6 @@
     <Flows/>
     <HTTPTargetConnection>
         <Properties/>
-        <URL>https://healthcare.googleapis.com/v1alpha/projects/{HC_project}/locations/{HC_location}/datasets/{HC_dataset}/fhirStores/{HC_fhirstore}/resources/{reqParams.entity}/{reqParams.id}</URL>
+        <URL>https://healthcare.googleapis.com/v1beta1/projects/{HC_project}/locations/{HC_location}/datasets/{HC_dataset}/fhirStores/{HC_fhirstore}/fhir/{reqParams.entity}/{reqParams.id}</URL>
     </HTTPTargetConnection>
 </TargetEndpoint>

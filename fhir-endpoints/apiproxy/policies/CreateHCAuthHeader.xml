@@ -5,6 +5,7 @@
     <Set>
         <Headers>
             <Header name="Authorization">Bearer {HC_token}</Header>
+            <Header name="Accept">application/json;charset=utf-8</Header>
         </Headers>
     </Set>
     <AssignVariable>

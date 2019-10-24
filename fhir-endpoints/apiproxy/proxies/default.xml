@@ -20,6 +20,9 @@
             <Step>
                 <Name>SetHealthcareDatasetProperties</Name>
             </Step>
+            <Step>
+                <Name>SetProxyHostName</Name>
+            </Step>
         </Request>
         <Response/>
     </PreFlow>

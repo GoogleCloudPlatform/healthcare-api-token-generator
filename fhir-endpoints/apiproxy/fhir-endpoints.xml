@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="11" name="fhir-endpoints">
+<APIProxy revision="3" name="fhir-endpoints">
     <Basepaths>/v1/hcapi</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1534205299569</CreatedAt>
-    <CreatedBy>cvonsee@google.com</CreatedBy>
+    <CreatedAt>1571933798829</CreatedAt>
+    <CreatedBy>raycai@google.com</CreatedBy>
     <Description></Description>
     <DisplayName>HealthcareAPI</DisplayName>
-    <LastModifiedAt>1534205299569</LastModifiedAt>
-    <LastModifiedBy>cvonsee@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:b9246b2a0f76df23979f0149790516be010f6950f30818ea4808b81dbdd3d159c8853888705df8fdc0c93e5a4ead3a21ed19f3224c05ced158eba8477caf8a5c</ManifestVersion>
+    <LastModifiedAt>1571933798829</LastModifiedAt>
+    <LastModifiedBy>raycai@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:a2a65858c93f9da6c4d650f612b87aa129b9ccb101be5618b9a60d8b56d0dcded9ea5d72937a768fdcb7cb4c27ff772fe668d9c99a34bd1a915821e30ac6efcd</ManifestVersion>
     <Policies>
         <Policy>CreateHCAuthHeader</Policy>
         <Policy>ExtractEntityIdFromPath</Policy>
         <Policy>ExtractEntityTypeOnlyFromPath</Policy>
         <Policy>HPX_Fault_UnsupportedOperation</Policy>
         <Policy>RaiseFaultUnauthorized</Policy>
-        <Policy>SetEntityNamePractitioner</Policy>
         <Policy>SetHealthcareDatasetProperties</Policy>
+        <Policy>SetProxyHostName</Policy>
+        <Policy>relocatePayloadUrls</Policy>
         <Policy>remove-header-authorization</Policy>
         <Policy>verify-oauth-v2-access-token</Policy>
     </Policies>
     <ProxyEndpoints>
         <ProxyEndpoint>default</ProxyEndpoint>
     </ProxyEndpoints>
-    <Resources/>
+    <Resources>
+        <Resource>jsc://updateAbsoluteUrls.js</Resource>
+    </Resources>
     <Spec></Spec>
     <TargetServers/>
     <TargetEndpoints>

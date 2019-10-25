@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest name="manifest">
     <Policies>
-        <VersionInfo resourceName="CreateHCAuthHeader" version="SHA-512:a0f9a3609b52bbd61480e1487527297ac25935c5ab4545238398b50e34420f8435fb08001927a9d4d3a26652e5f353fa62642c3d59d7f8d95dfd6b0142872c84"/>
+        <VersionInfo resourceName="CreateHCAuthHeader" version="SHA-512:0af5f499bf1fa60dd70812726d278d9fcae6c4ee8f8c09b787ffc5689d4b88a00f1562d78b0da9d19e3b565e1b130d0db9db403aadda12056bf7475041e5cfa8"/>
         <VersionInfo resourceName="ExtractEntityIdFromPath" version="SHA-512:bf4da15bf7c0aaaa7789e683d1b36f7cd88e4a892286b60a4c2e618ff815088a65951792cbd9cd51c72a782c5f3b47c6e8b235525f3c6bac19fbee9bd8ceb9c3"/>
         <VersionInfo resourceName="ExtractEntityTypeOnlyFromPath" version="SHA-512:984af2af945a23111657d6f7c5a839a1a9702a2649f6071393430cc5b6b3a8e32fde703148e0ddb762ce6b448f670b9a165b48df69095310dc5bf684cdd755fb"/>
         <VersionInfo resourceName="HPX_Fault_UnsupportedOperation" version="SHA-512:adb707a171b756e74f27e0144581d04c6268f0242d028a836c2e1bc9f1190d49c0c4d7f228867cf33facce97905e5fb28208b745b489566e2061a78208f92eac"/>
         <VersionInfo resourceName="RaiseFaultUnauthorized" version="SHA-512:97b47150863c44473cae89cad412dced34edab66bd685f4df14e752049709a15f8f0913ec33c5d1ba61013d654721565c339e4f5bc4452f7a77283b34d26e907"/>
-        <VersionInfo resourceName="SetEntityNamePractitioner" version="SHA-512:369883571b72c978b3f676fc3189e149f7b2c4fe1fbd52cf4dffae29caafa36e66fbbc0df2a1e8fb8159a6bade08ab3fde8ea9cd21bfd616e61eeceec3d46120"/>
         <VersionInfo resourceName="SetHealthcareDatasetProperties" version="SHA-512:87a9bf507231826c7ba7306409e7d277645347aaae78ba70c608f8640f5d3d1a91ed76babb6d93d26f76bd3356388590d01f757efd221409fee41602687876c8"/>
+        <VersionInfo resourceName="SetProxyHostName" version="SHA-512:23282cd1f30e03482c135e61d1b7844cf9e6a27c6c3eba1f86ae5a7e8093d32b38cb8a14031c8ab75de08d323d98a83cd6d03db8d50a94c7a3178f28a77bea10"/>
+        <VersionInfo resourceName="relocatePayloadUrls" version="SHA-512:c521724a162a09dfa87b06237fbabe8c5a809e51a72918f1ae580b323ecae269bddcf7792b6e414e5913db58dff183f9e42133a198d961d2e6b77701dcabf5ab"/>
         <VersionInfo resourceName="remove-header-authorization" version="SHA-512:bb51e553b4b66ee4313fbfc0eaa76f08f3db66f9bd05cce9a1dc6542bada0501291719372fb4468a0b7f85ecceaaf0f8a0a397560a14b05f32e87d95423befb7"/>
         <VersionInfo resourceName="verify-oauth-v2-access-token" version="SHA-512:be186ad133f93aafcac3d31bcb907dc849e4d8d10dadc63132cec9986bb306f937d7e9786a40be6ba66e04f4239189c3197d9df3c0ccbb30d79b4bd70231894e"/>
     </Policies>
     <ProxyEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:3285c907cf8ef6ddf402e9298dd6dbbaf91f51ba40c875e237331644450af7c538007802cc7b51fae01abaa4a284aea94724764b1e5e244f54a480cc34b17d5e"/>
+        <VersionInfo resourceName="default" version="SHA-512:8496ae3a3e8e49b9a9c0d92a4593c055b048e35be63a24d16dc125bf6cb1dcdfedde9d4356eb739e60ed6ec062bb61163d90f106fce42a1103dc3dcd86dc7546"/>
     </ProxyEndpoints>
-    <Resources/>
+    <Resources>
+        <VersionInfo resourceName="jsc://updateAbsoluteUrls.js" version="SHA-512:1e1a875f0f05a000aabf85182543dce4195dbb9ea185e6149ca71a8be0f30f6598596521c1dc030456539cada45c8abefb461b01da349cb2e2ee795007daa65c"/>
+    </Resources>
     <SharedFlows/>
     <TargetEndpoints>
-        <VersionInfo resourceName="withID" version="SHA-512:a99a277ead91aca73cbe3f15b6150915fa879059ffa63da3b8c2f92b8663ea0f3aefdabb5986ddc3f94dc06ea340e90bc813bf6420bf7ff368e5acb51117d78d"/>
-        <VersionInfo resourceName="withoutID" version="SHA-512:adcb18ff4d02363211b8977d409c042768f49e199274e69bb127b0809c6def138fad7e8d3b20b5d27a84b67b2947a42dc06d18fe4b111c40a57f60a61e98ee8b"/>
+        <VersionInfo resourceName="withID" version="SHA-512:2a54553fa6389d04e639e18a1bb9cbfddce27dbcbdfc258a3e45c966a4b34a4b6fe75b546338e4d2c2d84fcb75ef1c4811180461da79d5f5b9465714dfba8a27"/>
+        <VersionInfo resourceName="withoutID" version="SHA-512:ce0f90a61c86db6d08c9796477a5693dada8592f7cf9f7de2efe72d95bf4865d1fc802a0fb2623f35c0bdf6a72470a15a930270a0ccb06353462a946d4a7cf7d"/>
     </TargetEndpoints>
 </Manifest>
